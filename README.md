@@ -12,6 +12,48 @@
 [x] Add unit tests where applicable
 ```
 
+## Questions
+```bash
+Q: How did you decide on the technical and architectural choices used as part of your solution?
+
+A: I think for technical and architectural I just follwed what is required for this challenge. I did a quick crash course about NestJS, GraphQL and TypeORM. I really find the framework + stack really interesting. Let me break it down.
+
+Note: For NestJS and GraphQL, it is my first time creating a project with those framework.
+
+NestJS: I really like how structured and modular this framwork on building server-side applications. I find it easy to understand, the decorators are helpful for me with this challenge as it makes my life easier on doing the authenticated user stuff. The dependency injection is also a cool thing, when a module is initiated it will automatically create a new instance for the required dependencies so no need to use the 'new' keyword in order to create one. I think at the moment this is my favorite node.js backend framwork. There is still a long way for me to master everything with it, but I'm really interested on knowing everything about it.
+
+GraphQL: This query language thing right here is a stunning! The ability to for the frontend data to be flexible without touching the backend APIs is so cool! If this is paired with TypeORM, everything is much more faster to build. You can create new modules in no time!
+```
+
+```bash
+Q: Are there any improvements you could make to your submission?
+
+A: There are a lot of things that I think is missing here let me list them down:
+  - Testing
+    - Code coverage
+    - Create a separate end-to-end tests folder
+    - Improve unit tests performance
+  - User and Authentication
+    - At the moment the users are only stored in a cache and they are static so in order to improve I need to fully create a CRUD operations for user and user data must be stored in the database
+    - The password of users are in cleartext, as an improvement they should be hash/salted
+  - Data Migration
+    - Right now the migration is not dynamic, when we add new modules or update something on the existing schema we also need to update the orm.config.ts. I think there should be a way to make it dynamic  
+  - Code Comments
+    - At the moment I didn't put code comments/documentations, I think this is also one improvement
+  - API Documentation
+    - At the moment I don't have API documentation, although I have a postman collection
+  - Security and Validations
+    - There might be more things that I can add here to make the application more secure, like adding cors, helmet, etc.
+  - Database
+    - There might still some ways to improve db query speed by adding some indexes
+```
+
+```bash
+Q: What would you do differently if you were allocated more time?
+
+A: If given more time, aside from the things I wrote above. I will create a CI/CD pipeline to build and deploy this into a server.
+```
+
 ## Pre-requisite
 -   Install Docker and Docker Compose
     -   https://docs.docker.com/desktop/install/mac-install/
@@ -84,6 +126,12 @@ Start the server
 
 ```bash
   $ pnpm start:dev
+```
+
+Testing endpoints
+
+```bash
+You can use Postman to call the endpoints available for this project. Please refer to 'postman_collections' folder and import the 'collections' and 'environment' to Postman.
 ```
 
 ## Environment Variables

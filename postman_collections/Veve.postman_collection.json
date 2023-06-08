@@ -74,7 +74,7 @@
 				"body": {
 					"mode": "graphql",
 					"graphql": {
-						"query": "mutation {\n   deleteNft(id: \"5704cbfb-c2c5-4441-b931-311e377c954c\") {\n        id,\n        name,\n        blockchainLink,\n        description,\n        imageUrl,\n        mintDate\n   }\n}",
+						"query": "{\n    count\n    listOwnedNft(pagination: {\n        skip: 4,\n        take: 2\n    }) {\n        id,\n        name,\n        owner\n    }\n}",
 						"variables": ""
 					}
 				},
@@ -99,7 +99,7 @@
 						"body": {
 							"mode": "graphql",
 							"graphql": {
-								"query": "{\n    nft(id: \"01524bf5-7143-422a-b9cc-dec333a173d4\") {\n        id,\n        name,\n        blockchainLink,\n        description,\n        imageUrl,\n        mintDate\n    }\n}",
+								"query": "{\n    nft(id: \"01524bf5-7143-422a-b9cc-dec333a173d4\") {\n        id,\n        name,\n        blockchainLink,\n        description,\n        imageUrl,\n        owner,\n        mintDate\n    }\n}",
 								"variables": ""
 							}
 						}
@@ -128,6 +128,35 @@
 					"body": null
 				},
 				{
+					"name": "Create NFT",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation {\n   addNft(\n       name: \"new-nft\", \n       blockchainLink: \"test-link\", \n       description: \"test-description\",\n       imageUrl: \"test-image-url\")\n   {\n        id,\n        name,\n        blockchainLink,\n        description,\n        imageUrl,\n        mintDate\n   }\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				},
+				{
 					"name": "Update NFT",
 					"originalRequest": {
 						"method": "POST",
@@ -136,6 +165,35 @@
 							"mode": "graphql",
 							"graphql": {
 								"query": "mutation {\n   updateNft(\n       id: \"01524bf5-7143-422a-b9cc-dec333a173d4\", \n       updateNftInput: {\n       name: \"updated-nft-name\"\n    })\n   {\n        id,\n        name,\n        blockchainLink,\n        description,\n        imageUrl,\n        mintDate\n   }\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "Delete NFT",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation {\n   deleteNft(\n       id: \"01524bf5-7143-422a-b9cc-dec333a173d4\")\n   {\n        id,\n        name,\n        blockchainLink,\n        description,\n        imageUrl,\n        mintDate\n   }\n}",
 								"variables": ""
 							}
 						},
